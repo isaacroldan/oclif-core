@@ -4,7 +4,6 @@
 /.vscode
 /coverage
 /coverage.lcov
-/lib
 /node_modules
 /tmp
 /test/tmp
