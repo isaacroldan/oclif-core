@@ -6,7 +6,7 @@ export function requireJson<T>(...pathParts: string[]): T {
   if (fsExistsSync(join(...pathParts))) {
     return JSON.parse(readFileSync(join(...pathParts), 'utf8'))
   }
-  return {} as T
+  return {version: "3.0.0", name: "@oclif/core"} as T
 }
 
 /**
