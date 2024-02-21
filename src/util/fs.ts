@@ -3,7 +3,10 @@ import {readFile, stat} from 'node:fs/promises'
 import {join} from 'node:path'
 
 export function requireJson<T>(...pathParts: string[]): T {
-  return JSON.parse(readFileSync(join(...pathParts), 'utf8'))
+  if (fsExistsSync(join(...pathParts))) {
+    return JSON.parse(readFileSync(join(...pathParts), 'utf8'))
+  }
+  return {} as T
 }
 
 /**
